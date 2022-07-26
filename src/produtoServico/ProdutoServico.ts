@@ -5,7 +5,8 @@ export class ProdutoServico{
     public async verificaId(idProduto: number): Promise<any>{
         try{
             const produto = await axios.get(`http://localhost:3000/product/${idProduto}`);
-            return true;
+            if (produto) return true;
+            return false;
         }catch(err){
             return false;
         }
